@@ -1,0 +1,36 @@
+<style>
+    * {
+        margin: none;
+        padding: auto;
+        box-sizing: border-box;
+        font-family: 'Crimson Text', serif;
+    }
+
+    h1 {
+        font-weight: bolder;
+        /* text-align: center; */
+        text-decoration: underline;
+        text-shadow: 2px rgb(3, 66, 35);
+        font-size: 60px;
+        position: relative;
+        left: 0;
+        padding-left: 100px;
+        animation: sideway 10s infinite linear;
+    }
+
+    @keyframes sideway {
+        from {
+            left: 0;
+        }
+
+        to {
+            left: 450px;
+        }
+    }
+</style>
+
+<h1>
+
+    <%= message %>
+
+</h1>

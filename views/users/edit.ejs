@@ -1,0 +1,120 @@
+<% include('../layouts/header.ejs') %>
+    <style>
+        * {
+            margin: none;
+            padding: auto;
+            box-sizing: border-box;
+            font-family: 'Crimson Text', serif;
+        }
+
+        h1 {
+            font-weight: bolder;
+            /* text-align: center; */
+            text-decoration: underline;
+            text-shadow: 2px rgb(3, 66, 35);
+            font-size: 60px;
+            position: relative;
+            left: 0;
+            padding-left: 100px;
+            animation: sideway 10s infinite linear;
+        }
+
+        @keyframes sideway {
+            from {
+                left: 0;
+            }
+
+            to {
+                left: 450px;
+            }
+        }
+
+        .form-container {
+            border: 1px solid black;
+            float: right;
+            width: 48%;
+            height: 100%;
+            right: 10px;
+            margin-right: 28px;
+            padding-left: 50px;
+            padding-top: 10px;
+            background-color: beige;
+        }
+
+        .input-box {
+            flex: 1 1 7rem;
+            display: flex;
+            flex-direction: column;
+            width: 538px;
+        }
+
+        .input-box input {
+            padding: 7px;
+            outline: none;
+            border: none;
+            background: #eeeff1;
+            border-radius: 0.5rem;
+            font-style: oblique;
+            font-size: 1rem;
+            border: 1px solid black;
+        }
+
+        .input-box span {
+            font-family: 'Fjalla One', sans-serif;
+            padding: 5px;
+        }
+
+        .form-container form .btn {
+            flex: 1 1 7rem;
+            padding: 10px 35px;
+            margin-top: 10px;
+            border: 3px solid #11c5c5;
+            border-radius: 0.5rem;
+            background: #194f92;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .image-container {
+            float: left;
+            width: 50%;
+            position: absolute;
+            padding-left: 34px;
+            z-index: 1 !important;
+        }
+    </style>
+    <div class="image-container">
+        <img src="userImages/<%= user.image %>" width="100px" height="100px" alt="<%= user.image %>">
+    </div>
+    <div class="form-container">
+        <form action="" method="POST" enctype="multipart/form-data">
+            <div class="input-box">
+                <span>PROFILE PICTURE:</span>
+                <input type="file" name="image">
+            </div>
+            <div class="input-box">
+                <span>USER ID:</span>
+                <input type="hidden" name="user_id" value="<%= user._id %>">
+                <br><br>
+            </div>
+            <div class="input-box">
+                <span>NAME:</span>
+                <input type="text" name="name" value="<%= user.name %>" placeholder="Enter Name" required>
+                <br><br>
+            </div>
+            <div class="input-box">
+                <span>EMAIL:</span>
+                <input type="email" name="email" value="<%= user.email %>" placeholder="Enter Email" required>
+                <br><br>
+            </div>
+            <div class="input-box">
+                <span>PASSWORD:</span>
+                <input type="text" name="mno" value="<%= user.mobile %>" placeholder="Enter Mobile" required>
+                <br>
+            </div>
+            <input class="btn" type="submit" value="Update Profile">
+
+        </form>
+    </div>
+    <% include('../layouts/footer.ejs') %>
